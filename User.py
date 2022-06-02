@@ -22,6 +22,16 @@ class Users:
         self.posts.append(post)
         Users.user_post[self.user_name].append(post)
         return post
+    
+    def Delete_post(self, str):
+        for post in self.posts:
+            if str in post:
+                self.posts.remove(post)
+        for post in Users.user_post[self.user_name] :
+            if str in post:
+             Users.user_post[self.user_name].remove(post)
+            
+           
         
 
 Kinetic = Users('kinetic','kineticvenom', 'kaleb',"varnes", 'kalebvarnes@yahoo.com')
@@ -31,4 +41,7 @@ test = Kinetic.NewUser_post("This is starting to make sense!")
 test2 = Absol.NewUser_post(" Maybe I  should play video games next?")
 all_posts = Users.user_post
 
+Kinetic.Delete_post("This is starting to make sense!")
+
+print(Kinetic.Delete_post)
 print(all_posts)
